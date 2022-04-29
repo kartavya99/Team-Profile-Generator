@@ -2,5 +2,27 @@
   "dependencies": {
     "inquirer": "^8.2.4",
     "jest": "^28.0.2"
-  }
+  },
+  "name": "team-profile-generator",
+  "description": "Object-Oriented Programming: Team Profile Generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kartavya99/Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kartavya99/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/kartavya99/Team-Profile-Generator#readme"
 }
