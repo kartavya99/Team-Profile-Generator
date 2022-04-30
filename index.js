@@ -90,18 +90,23 @@ function employeeData(){
     return inquirer.prompt(questions)
     .then((answers) => {
     if(role === "Manager"){
-        employee = new Manager(name, id, email, officeNumber);
+        mangerArr = new Manager(name, id, email, officeNumber);
         //return mangerArr;
         console.log("thank you entering employee details");
     } else if(role === "Engineer"){
-        employee = new Engineer(name, id, email, github);
+        engineerArr = new Engineer(name, id, email, github);
         //return engineerArr;
         console.log("thank you entering employee details");
     } else if(role === "Intern") {
-        employee = new Intern(name, id, email, school);
+        internArr = new Intern(name, id, email, school);
         //return internArr;
         console.log("thank you entering employee details");
+    } else () {
+        // if new employee = manager then in mangerArr
+        // if new employee = engineer then in engineerArr
+        // if new employee = intern then in internArr
     }
+
     });
 };
 
