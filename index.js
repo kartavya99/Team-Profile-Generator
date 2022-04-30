@@ -6,64 +6,65 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 let mangerArr= [];
+let engineerArr = [];
+let internArr = [];
 
-const EmployeeQuestions = [
-    {
-        type : "list",
+const questions = [
+    {   type : "list",
         name : "role",
         message : "Please select the role of the employee below",
         choices: ["Manager" , "Engineer" , "Intern"]
     },
-    {
-        type: "input",
+    {   type: "input",
         name: "name",
         message: "Please enter the name of the employee"
     },
-    {
-        type: "input",
+    {   type: "input",
         name: "id",
         message: "Please enter the name of the ID number"
     },
-    {
-        type: "input",
+    {   type: "input",
         name: "email",
         message: "Please enter the name of the employee email address"
     },
-]
-
-const managerQuestions = [
-    {
-        type: "input",
+    {   type: "input",
         name : "officeNumber",
-        message: "Please enter Office number"
-    }
-]
-
-const engineerQuestions = [
-    {
-        type: "input",
+        message: "Please enter Office number",
+        when: (officeNumber) => {(officeNumber.role === "Manager");},
+        validate: () =>{
+            if(officeNumber) {
+                return true;
+            } else {
+                console.log("Please enter valid office number");
+            }
+        }       
+    },
+    {   type: "input",
         name: "github",
-        message: "Please enter Github username"
-    }        
-
-]
-
-const internQuestions = [
-    {
-        type: "input",
+        message: "Please enter Github username",
+        when: (github) => {(github.role === "Engineer");},
+    },
+    {   type: "input",
         name: "school",
-        message: "please enter name of the school"
-    }
+        message: "please enter name of the school",
+        when: (school) => {(school.role === "Intern");}
+    },
+    {
+        type: "confirm",
+        name: "confirmEmployee",
+        message: "Would you like to add new employee details?",
+        default : false
+    }    
 ]
 
-
-function userInput(){
+ 
+function employeeData(){
+    
     inquirer
-    .prompt(EmployeeQuestions)
+    .prompt(questions)
     .then((answers => {
-        console.log(answers);
-        
+    console.log(answers);
     }))
 };
 
-console.log(userInput());
+console.log(employeeData());
