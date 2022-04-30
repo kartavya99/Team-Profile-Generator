@@ -49,7 +49,7 @@ const questions = [
                 return true;
             } else {
                 console.log("please enter Github username");
-                return false
+                return false;
             }
 
         }
@@ -58,6 +58,14 @@ const questions = [
         name: "school",
         message: "please enter name of the school",
         when: (school) => school.role === "Intern",
+        validate:(school) => {
+            if (school) {
+                return true;
+            } else {
+                console.log("please enter school name");
+                return false;
+            }
+        }
     },
     {
         type: "confirm",
