@@ -31,24 +31,33 @@ const questions = [
     {   type: "input",
         name : "officeNumber",
         message: "Please enter Office number",
-        when: (officeNumber) => {(officeNumber.role === "Manager");},
-        validate: () =>{
-            if(officeNumber) {
-                return true;
+        when: (officeNumber) => officeNumber.role === "Manager",
+        validate: (officeNumber) =>{
+            if(isNaN(officeNumber)) {
+                return "Please enter valid office number";
             } else {
-                console.log("Please enter valid office number");
+                return true;
             }
         }       
     },
     {   type: "input",
         name: "github",
         message: "Please enter Github username",
-        when: (github) => {(github.role === "Engineer");},
+        when: (github) => github.role === "Engineer",
+        validate:(github) => {
+            if (github) {
+                return true;
+            } else {
+                console.log("please enter Github username");
+                return false
+            }
+
+        }
     },
     {   type: "input",
         name: "school",
         message: "please enter name of the school",
-        when: (school) => {(school.role === "Intern");}
+        when: (school) => school.role === "Intern",
     },
     {
         type: "confirm",
@@ -70,8 +79,7 @@ function employeeData(){
     let school;
     let officeNumber;
 
-    inquirer
-    .prompt(questions)
+    return inquirer.prompt(questions)
     .then((answers) => {
     if(role === "Manager"){
         employee = new Manager(name, id, email, officeNumber);
@@ -89,4 +97,4 @@ function employeeData(){
     });
 };
 
-console.log(employeeData());
+employeeData();
