@@ -4,6 +4,7 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const fs = require("fs");
 const inquirer = require("inquirer");
+const { off } = require("process");
 
 let mangerArr= [];
 let engineerArr = [];
@@ -60,11 +61,32 @@ const questions = [
  
 function employeeData(){
     
+    let employee;
+    let role;
+    let name;
+    let id;
+    let email;
+    let github;
+    let school;
+    let officeNumber;
+
     inquirer
     .prompt(questions)
-    .then((answers => {
-    console.log(answers);
-    }))
+    .then((answers) => {
+    if(role === "Manager"){
+        employee = new Manager(name, id, email, officeNumber);
+        //return mangerArr;
+        console.log("thank you entering employee details");
+    } else if(role === "Engineer"){
+        employee = new Engineer(name, id, email, github);
+        //return engineerArr;
+        console.log("thank you entering employee details");
+    } else if(role === "Intern") {
+        employee = new Intern(name, id, email, school);
+        //return internArr;
+        console.log("thank you entering employee details");
+    }
+    });
 };
 
 console.log(employeeData());
