@@ -33,9 +33,9 @@ const questions = [
         message: "Please enter the name of the ID number of employee (Required)",
         validate : (id) => {
             if (isNaN(id)) {
-                return true;
-            } else {
                 return "Please entre the employee identification number";
+            } else {
+                return true;
             }
         }
     },
