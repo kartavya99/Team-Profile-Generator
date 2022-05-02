@@ -101,38 +101,39 @@ const questions = [
 function employeeData(){
     
     let employee;
-    let role;
-    let name;
-    let id;
-    let email;
-    let github;
-    let school;
-    let officeNumber;
     let manager;
     let engineer;
     let intern;
 
-    return inquirer.prompt(questions)
+    inquirer.prompt(questions)
     .then((answers) => {
-    if(role === "Manager"){
-        manager = new Manager(name, id, email, officeNumber);
+    console.log(answers);
+    if(answers.role === "Manager"){
+        manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         //return mangerArr;
         mangerArr.push(manager);
         console.log("thank you entering employee details");
-    } else if(role === "Engineer"){
-        engineer = new Engineer(name, id, email, github);
+    } if(answers.role === "Engineer"){
+        engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         //return engineerArr;
-        engineerArr.push(engineer);
+        engineerArr.push(engineer);  
         console.log("thank you entering employee details");
-    } else if(role === "Intern") {
-        intern = new Intern(name, id, email, school);
+    } if(answers.role === "Intern") {
+        intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         //return internArr;
         internArr.push(intern);
         console.log("thank you entering employee details");
-    } else if (confirmEmployee) {
+    } if (answers.confirmEmployee === true) {
         return employeeData();
-    } 
+    } else {
+        console.log(mangerArr);
+        console.log(engineerArr);
+        console.log(internArr);
+        return (mangerArr, engineerArr, internArr);
+    }
     });
+   
 };
+
 
 employeeData();
