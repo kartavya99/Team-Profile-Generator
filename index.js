@@ -86,27 +86,30 @@ function employeeData(){
     let github;
     let school;
     let officeNumber;
+    let manager;
+    let engineer;
+    let intern;
 
     return inquirer.prompt(questions)
     .then((answers) => {
     if(role === "Manager"){
-        mangerArr = new Manager(name, id, email, officeNumber);
+        manager = new Manager(name, id, email, officeNumber);
         //return mangerArr;
+        mangerArr.push(manager);
         console.log("thank you entering employee details");
     } else if(role === "Engineer"){
-        engineerArr = new Engineer(name, id, email, github);
+        engineer = new Engineer(name, id, email, github);
         //return engineerArr;
+        engineerArr.push(engineer);
         console.log("thank you entering employee details");
     } else if(role === "Intern") {
-        internArr = new Intern(name, id, email, school);
+        intern = new Intern(name, id, email, school);
         //return internArr;
+        internArr.push(intern);
         console.log("thank you entering employee details");
-    } else () {
-        // if new employee = manager then in mangerArr
-        // if new employee = engineer then in engineerArr
-        // if new employee = intern then in internArr
-    }
-
+    } else if (answers.confirmEmployee) {
+        return employeeData();
+    } 
     });
 };
 
