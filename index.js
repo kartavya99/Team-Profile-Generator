@@ -129,7 +129,7 @@ function employeeData(){
         //return internArr;
         internArr.push(intern);
         console.log("thank you entering employee details");
-    } else if (answers.confirmEmployee) {
+    } else if (confirmEmployee) {
         return employeeData();
     } 
     });
