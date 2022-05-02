@@ -100,35 +100,28 @@ const questions = [
  
 function employeeData(){
     
-    let employee;
-    let manager;
-    let engineer;
-    let intern;
-
     inquirer.prompt(questions)
     .then((answers) => {
     console.log(answers);
     if(answers.role === "Manager"){
-        manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+       let  manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         //return mangerArr;
         mangerArr.push(manager);
         console.log("thank you entering employee details");
     } if(answers.role === "Engineer"){
-        engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+         let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         //return engineerArr;
         engineerArr.push(engineer);  
         console.log("thank you entering employee details");
     } if(answers.role === "Intern") {
-        intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+       let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         //return internArr;
         internArr.push(intern);
         console.log("thank you entering employee details");
     } if (answers.confirmEmployee === true) {
         return employeeData();
     } else {
-        console.log(mangerArr);
-        console.log(engineerArr);
-        console.log(internArr);
+        console.log(mangerArr, engineerArr, internArr);
         return (mangerArr, engineerArr, internArr);
     }
     });
