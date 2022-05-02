@@ -4,7 +4,8 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const fs = require("fs");
 const inquirer = require("inquirer");
-const { off } = require("process");
+const emailValidator = require("email-validator");
+
 
 let mangerArr= [];
 let engineerArr = [];
@@ -18,15 +19,36 @@ const questions = [
     },
     {   type: "input",
         name: "name",
-        message: "Please enter the name of the employee"
+        message: "Please enter the name of the employee (Required)",
+        validate : (name) => {
+            if(name) {
+                return true;
+            } else {
+                return "Please enter the name of the employee";
+            }
+        }
     },
     {   type: "input",
         name: "id",
-        message: "Please enter the name of the ID number"
+        message: "Please enter the name of the ID number of employee (Required)",
+        validate : (id) => {
+            if (isNaN(id)) {
+                return true;
+            } else {
+                return "Please entre the employee identification number";
+            }
+        }
     },
     {   type: "input",
         name: "email",
-        message: "Please enter the name of the employee email address"
+        message: "Please enter the name of the employee email address (Required)",
+        validate : (email) => {
+            if (emailValidator.validate(email)){
+                return true;
+            } else {
+                return "Please enter a valid email address."
+            }
+        }
     },
     {   type: "input",
         name : "officeNumber",
