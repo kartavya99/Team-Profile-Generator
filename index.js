@@ -102,7 +102,7 @@ function employeeData(){
     
     inquirer.prompt(questions)
     .then((answers) => {
-    console.log(answers);
+    //console.log(answers);
     if(answers.role === "Manager"){
        let  manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         //return mangerArr;
@@ -121,7 +121,7 @@ function employeeData(){
     } if (answers.confirmEmployee === true) {
         return employeeData();
     } else {
-        console.log(mangerArr, engineerArr, internArr);
+        //console.log(mangerArr, engineerArr, internArr);
         return (mangerArr, engineerArr, internArr);
     }
     });
@@ -129,4 +129,13 @@ function employeeData(){
 };
 
 
+function writeToFile(data){
+    fs.writeFile("index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));
+};
+
 employeeData();
+
+function init() {
+
+    // resume working from here to creat index.html file
+}
