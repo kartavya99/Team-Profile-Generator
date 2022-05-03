@@ -137,5 +137,11 @@ employeeData();
 
 function init() {
 
+    inquirer
+    .promt(questions);
+    .then(data) => {
+        console.log("employee details added");
+        writeFile("./dist/index.html", generateHTML(data));
+    }
     // resume working from here to creat index.html file
 }
