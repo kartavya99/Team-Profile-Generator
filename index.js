@@ -8,7 +8,7 @@ const emailValidator = require("email-validator");
 const generatedHTML = require('./dist/generatedHTML');
 
 
-let mangerArr= [];
+let managerArr= [];
 let engineerArr = [];
 let internArr = [];
 
@@ -70,11 +70,11 @@ function employeeData(){
     
     inquirer.prompt(questions)
     .then((answers) => {
-    //console.log(answers);
+    console.log(answers);
     if(answers.role === "Manager"){
        let  manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         //return mangerArr;
-        mangerArr.push(manager);
+        managerArr.push(manager);
         console.log("thank you entering employee details");
     } if(answers.role === "Engineer"){
          let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
@@ -89,28 +89,32 @@ function employeeData(){
     } if (answers.confirmEmployee === true) {
         return employeeData();
     } else {
-        //console.log(mangerArr, engineerArr, internArr);
-        return (mangerArr, engineerArr, internArr);
+        console.log(managerArr, engineerArr, internArr);
+        return (managerArr, engineerArr, internArr);
     }
     });
    
 };
 
+//employeeData();
 
 function writeToFile(data){
     fs.writeFile("./dist/index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));
 };
 
-//employeeData();
-
 function init() {
-
     inquirer
     .prompt(questions)
     .then((data) => {
         console.log("employee details added");
-        writeToFile("index.html", generatedHTML(mangerArr, engineerArr, internArr));
+        writeToFile(generatedHTML(managerArr, engineerArr, internArr));
     })
 }
 
 init()
+
+module.exports = {
+    managerArr,
+    engineerArr,
+    internArr,
+}
