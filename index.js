@@ -73,7 +73,7 @@ function employeeData(){
     console.log(answers);
     if(answers.role === "Manager"){
        let  manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        //return mangerArr;
+        //return managerArr;
         managerArr.push(manager);
         console.log("thank you entering employee details");
     } if(answers.role === "Engineer"){
