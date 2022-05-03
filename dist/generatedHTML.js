@@ -1,13 +1,22 @@
 const fs = require('fs');
 //const manager = require("../src");
 
+function genMan (manager) {
+    return`
+    ${manager.role}
+    ${manager.name}
+    `
+}
 
-function generatedHTML (managerArr, engineerArr, internArr) {
+
+function generatedHTML (managers, engineers, interns) {
     return`
 
     Hello team!!
-   1 ${managerArr.name}
-   2 ${managerArr}
+    
+
+   ${genMan}
+   ${managers.name}
      
 
     `
