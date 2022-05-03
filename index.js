@@ -20,74 +20,39 @@ const questions = [
     {   type: "input",
         name: "name",
         message: "Please enter the name of the employee (Required)",
-        validate : (name) => {
-            if(name) {
-                return true;
-            } else {
-                return "Please enter the name of the employee";
-            }
-        }
+        validate : (name) => name ? true : console.log("please enter the name of the employye")
+       
     },
     {   type: "input",
         name: "id",
         message: "Please enter the name of the ID number of employee (Required)",
-        validate : (id) => {
-            if (isNaN(id)) {
-                return "Please entre the employee identification number";
-            } else {
-                return true;
-            }
-        }
+        validate : (id) => (!isNaN(id)) ? true : console.log("Please entre the employee identification number")
+        
     },
     {   type: "input",
         name: "email",
         message: "Please enter the name of the employee email address (Required)",
-        validate : (email) => {
-            if (emailValidator.validate(email)){
-                return true;
-            } else {
-                return "Please enter a valid email address."
-            }
-        }
+        validate : (email) => (emailValidator.validate(email)) ? true : console.log("Please enter a valid email address")
+        
+        
     },
     {   type: "input",
         name : "officeNumber",
         message: "Please enter Office number",
         when: (officeNumber) => officeNumber.role === "Manager",
-        validate: (officeNumber) =>{
-            if(isNaN(officeNumber)) {
-                return "Please enter valid office number";
-            } else {
-                return true;
-            }
-        }       
+        validate: (officeNumber) => (!isNaN(officeNumber)) ? true : console.log("Please enter a valid office number")
     },
     {   type: "input",
         name: "github",
         message: "Please enter Github username",
         when: (github) => github.role === "Engineer",
-        validate:(github) => {
-            if (github) {
-                return true;
-            } else {
-                console.log("please enter Github username");
-                return false;
-            }
-
-        }
+        validate:(github) => github ? true : console.log("please enter Github username")
     },
     {   type: "input",
         name: "school",
         message: "please enter name of the school",
         when: (school) => school.role === "Intern",
-        validate:(school) => {
-            if (school) {
-                return true;
-            } else {
-                console.log("please enter school name");
-                return false;
-            }
-        }
+        validate:(school) => school ? true : console.log("Please enter school name")
     },
     {
         type: "confirm",
@@ -97,6 +62,8 @@ const questions = [
     }    
 ]
 
+
+// creat function to check the ID number used before it or not.
  
 function employeeData(){
     
@@ -130,7 +97,7 @@ function employeeData(){
 
 
 function writeToFile(data){
-    fs.writeFile("index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));
+    fs.writeFile("./dist/index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));
 };
 
 employeeData();
@@ -141,7 +108,6 @@ function init() {
     .promt(questions);
     .then(data) => {
         console.log("employee details added");
-        writeFile("./dist/index.html", generateHTML(data));
+        writeFile("index.html", generateHTML(mangerArr, engineerArr, internArr));
     }
-    // resume working from here to creat index.html file
 }
