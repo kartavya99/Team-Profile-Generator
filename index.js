@@ -5,6 +5,7 @@ const Intern = require("./lib/intern");
 const fs = require("fs");
 const inquirer = require("inquirer");
 const emailValidator = require("email-validator");
+const generatedHTML = require('./dist/generatedHTML');
 
 
 let mangerArr= [];
@@ -100,14 +101,16 @@ function writeToFile(data){
     fs.writeFile("./dist/index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));
 };
 
-employeeData();
+//employeeData();
 
 function init() {
 
     inquirer
-    .promt(questions);
-    .then(data) => {
+    .prompt(questions)
+    .then((data) => {
         console.log("employee details added");
-        writeFile("index.html", generateHTML(mangerArr, engineerArr, internArr));
-    }
+        writeToFile("index.html", generatedHTML(mangerArr, engineerArr, internArr));
+    })
 }
+
+init()
