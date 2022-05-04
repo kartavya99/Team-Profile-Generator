@@ -89,32 +89,20 @@ function employeeData(){
     } if (answers.confirmEmployee === true) {
         return employeeData();
     } else {
+        return writeToFile(generatedHTML(managerArr, engineerArr, internArr));
         console.log(managerArr, engineerArr, internArr);
-        return (managerArr, engineerArr, internArr);
+        //return (managerArr, engineerArr, internArr);
     }
     });
    
 };
 
-//employeeData();
+employeeData();
 
 function writeToFile(data){
     fs.writeFile("./dist/index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));
 };
 
-function init() {
-    inquirer
-    .prompt(questions)
-    .then((managerArr, engineerArr, internArr) => {
-        console.log("employee details added");
-        writeToFile(generatedHTML(managerArr, engineerArr, internArr));
-        console.log(managerArr);
-        console.log(engineerArr);
-        console.log(internArr);
-    });
-}
-
-init()
 
 module.exports = {
     managerArr,
