@@ -105,10 +105,13 @@ function writeToFile(data){
 function init() {
     inquirer
     .prompt(questions)
-    .then((data) => {
+    .then((managerArr, engineerArr, internArr) => {
         console.log("employee details added");
         writeToFile(generatedHTML(managerArr, engineerArr, internArr));
-    })
+        console.log(managerArr);
+        console.log(engineerArr);
+        console.log(internArr);
+    });
 }
 
 init()
