@@ -2,17 +2,22 @@ const fs = require('fs');
 //const manager = require("../src");
 function generateManagers(manager){
     return `
-    ${manager.role}
+    
+   
     ${manager.name}
-    ${manager.email}
     ${manager.id}
-    ${manager.officeNumber}`
+    ${manager.email}
+    ${manager.officeNumber}
+    
+        
+    `
+
 }
 
 function generateEngineers (engineer) {
     return `
     
-    ${engineer.role}
+    
     ${engineer.name}
     ${engineer.email}
     ${engineer.id}
@@ -24,7 +29,6 @@ function generateEngineers (engineer) {
 function generateInterns (intern) {
 
     return `
-    ${intern.role}
     ${intern.name}
     ${intern.email}
     ${intern.id}
@@ -36,11 +40,13 @@ function generateInterns (intern) {
 
 function generatedHTML (managers, engineers, interns) {
     return`
-        
+        Manager : 
         ${managers.map(generateManagers).join("/n")}
 
+        Engineer :
         ${engineers.map(generateEngineers).join("/n")}
 
+        Interns:
         ${interns.map(generateInterns).join("/n")}
             
     
