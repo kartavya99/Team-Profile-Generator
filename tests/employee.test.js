@@ -1,5 +1,7 @@
 const Employee = require("../lib/employee");
 
+// writing tests to check the functionality of the Employee class 
+
 describe("Employee Class Tests", () => {
     it("has getName() as entered name", () => {
         const rambo = new Employee("rambo", "9", "rambo@office.com",);

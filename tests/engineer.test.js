@@ -1,5 +1,7 @@
 const Engineer = require("../lib/engineer");
 
+// writing tests to check the functionality of the Enginer class 
+
 describe("Engineer Class Tests", () => {
     it("has getRole() as entered role", () =>{
         const returnValue = "Engineer";

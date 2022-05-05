@@ -1,6 +1,8 @@
 
 const Intern = require("../lib/intern");
 
+// writing tests to check the functionality of the Intern class
+
 describe("Intern Class Tests", () => {
     it("has getRole() as entered role", () => {
         const returnValue = "Intern";

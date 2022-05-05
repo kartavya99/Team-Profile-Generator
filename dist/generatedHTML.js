@@ -1,5 +1,6 @@
 const fs = require('fs');
-//const manager = require("../src");
+
+// Created function to access manager's data
 function generateManagers(manager){
     return `
     <div class="card" style="width: 18rem;">
@@ -16,6 +17,7 @@ function generateManagers(manager){
     `
 }
 
+// Created function to access Engineers's data
 function generateEngineers (engineer) {
     return `
     <div class="card" style="width: 18rem;">
@@ -33,6 +35,7 @@ function generateEngineers (engineer) {
     ` 
 }
 
+// Created function to access Interns's data
 function generateInterns (intern) {
 
     return `
@@ -52,11 +55,10 @@ function generateInterns (intern) {
     `
 }
 
+// GeneratedHTML function imported from index.js file line number 92
 
 function generatedHTML (managers, engineers, interns) {
     return`
-
-
     <!DOCTYPE html>
     <html lang="en">
     <head>

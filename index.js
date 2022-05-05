@@ -7,11 +7,13 @@ const inquirer = require("inquirer");
 const emailValidator = require("email-validator");
 const generatedHTML = require('./dist/generatedHTML');
 
-
+//created empty arrays to store employee details bases on their role
 let managerArr= [];
 let engineerArr = [];
 let internArr = [];
 
+
+// Using Inquire package to prompt questions for employee details
 const questions = [
     {   type : "list",
         name : "role",
@@ -40,18 +42,21 @@ const questions = [
     {   type: "input",
         name : "officeNumber",
         message: "Please enter Office number",
+        // Using when functionality of Inquire package to ask certain question based on employye role
         when: (officeNumber) => officeNumber.role === "Manager",
         validate: (officeNumber) => (!isNaN(officeNumber)) ? true : console.log("Please enter a valid office number")
     },
     {   type: "input",
         name: "github",
         message: "Please enter Github username",
+        // Using when functionality of Inquire package to ask certain question based on employye role
         when: (github) => github.role === "Engineer",
         validate:(github) => github ? true : console.log("please enter Github username")
     },
     {   type: "input",
         name: "school",
         message: "please enter name of the school",
+        // Using when functionality of Inquire package to ask certain question based on employye role
         when: (school) => school.role === "Intern",
         validate:(school) => school ? true : console.log("Please enter school name")
     },
@@ -66,6 +71,9 @@ const questions = [
 
 // creat function to check the ID number used before it or not.
  
+
+
+// EmployyeData function collects infromation from question prompt and trasnfer details into generatedHTML file.
 function employeeData(){
     
     inquirer.prompt(questions)
@@ -98,6 +106,9 @@ function employeeData(){
 };
 
 employeeData();
+
+
+// WriteTOFile function to creat file with a path 
 
 function writeToFile(data){
     fs.writeFile("./dist/index.html", data, (error) => error ? console.log(erro) : console.log("index.html has been generated."));

@@ -1,6 +1,7 @@
 
 const Manager = require("../lib/manager");
-const Employee = require("../lib/employee");
+
+// writing tests to check the functionality of the Manager class
 
 describe("Manager Class Tests", () => {
     it("has getRole() as entered role", () => {
