@@ -30,6 +30,10 @@
 
 <img src = "dist/screenshot.png" width ="400">
 
+## Example Video link
+  [Video Demo](https://drive.google.com/file/d/1nJh5KNCzedye_ftcyRpfbpNlqcE0XO2q/view)
+  
+
 # Features and Techonlogies uses
 * JavaScript
 * Node.js
@@ -38,4 +42,6 @@
 * Bootstrap
 
 # License
-## No rights reserved so please feel free to clone the repo and use it 
+
+## Under the MIT license 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
