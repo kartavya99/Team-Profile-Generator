@@ -2,7 +2,7 @@
 # Object-Oriented Programming: Team Profile Generator
 
 # Functionality of this app 
-## A Node command-line application that predomantiely uses the inquirer package and takes in information about employees and generates an HTML webpage that displays summaries for each person.
+## A Node command-line application that predomantiely uses the inquirer package and takes in information about employees and generates an HTML webpage that renders summaries for each person on HTML page.
 
 # Installation
 
