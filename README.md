@@ -28,6 +28,8 @@
 
 * This is a sample page website which generated using Team Profile Generatro application
 
+<img src = "dist/screenshot.png" width ="400">
+
 # Features and Techonlogies uses
 * JavaScript
 * Node.js
