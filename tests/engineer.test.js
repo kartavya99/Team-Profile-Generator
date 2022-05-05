@@ -2,12 +2,14 @@ const Engineer = require("../lib/engineer");
 
 describe("Engineer Class Tests", () => {
     it("has getRole() as entered role", () =>{
-        const rambo = new Engineer("rambo", "9", "rambo@office.com", "fighter", "rambo123");
-        expect(rambo.getRole()).toBe("fighter");
+        const returnValue = "Engineer";
+        const rambo = new Engineer("rambo", "9", "rambo@office.com", "rambo123");
+        expect(rambo.getRole()).toBe(returnValue);
     });
 
     it("has getGithub() as github username", () => {
-        const rambo = new Engineer("rambo", "9", "rambo@office.com", "fighter", "rambo123");
-        expect(rambo.getGithub()).toBe("rambo123");
+        const returnValue = "Github userName";
+        const rambo = new Engineer("rambo", "9", "rambo@office.com", returnValue);
+        expect(rambo.getGithub()).toBe(returnValue);
     });
 });
