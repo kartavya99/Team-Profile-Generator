@@ -2,6 +2,7 @@
 body {
     background-color: #DCEEF2;
     color: #DCEEF2;
+    Font-Family: 'Muli', Sans-Serif
     
 }
 
@@ -28,16 +29,30 @@ h2 {
     margin-top: 1.5rem;
     text-align: center;
     box-shadow: 5px 3px 9px 1px #465E73;
+    font-weight: bold;
 }
 
 .card {
     background-color: #152C40;
     /* background-color: #CDDEFF; */
     box-shadow: 5px 3px 9px 1px #465E73;
-
     
 }
+      
+
+
+.card-header {
+    font-weight: bold;
+}
+
+a {
+    color: #BF7636;
+    font-weight: bold;
+    /* color: #D9B991; */
+}
+
 
 .list-group-item{
     background-color: #EEF2FF;
 }
+
