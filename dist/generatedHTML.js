@@ -44,7 +44,7 @@ function generateInterns (intern) {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Employee Id : ${intern.id}</li>
       <li class="list-group-item">Email : ${intern.email}</li>
-      <li class="list-group-item">School : ${intern.shool}</li>
+      <li class="list-group-item">School : ${intern.school}</li>
     </ul>
   </div>
   <br>
